@@ -1,4 +1,13 @@
 Sparktivity::Application.routes.draw do
+  resources :comments
+
+  resources :likes
+
+  devise_for :users
+  resources :projects
+
+  root to: "home#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
