@@ -1,12 +1,16 @@
 Sparktivity::Application.routes.draw do
+
+
+  root :to => 'passthrough#index'
+  get "passthrough/index"
+  get "main/index"
+  get "main/welcome"
+
   resources :comments
-
   resources :likes
-
-  devise_for :users
   resources :projects
 
-  root to: "home#index"
+  devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
