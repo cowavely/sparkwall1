@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails'
+gem 'railties'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -30,9 +31,14 @@ gem 'jbuilder', '~> 1.2'
 # Add devise for login and authentication
 gem 'devise'
 
+# Visualizer! Railroady, https://github.com/preston/railroady
+group :development, :test do
+    gem 'railroady'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+#  gem 'sdoc', require: false
 end
 
 # Use ActiveModel has_secure_password

@@ -1,3 +1,4 @@
 class ProjectWishlist < ActiveRecord::Base
-	belongs_to :project, :wishlist
+	belongs_to :project
+	belongs_to :wishlist
 end
