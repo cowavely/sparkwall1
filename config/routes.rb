@@ -1,5 +1,9 @@
-Sparktivity::Application.routes.draw do
+Sparkwall::Application.routes.draw do
 
+
+  resources :wishlists
+
+  resources :grade_levels
 
   root :to => 'passthrough#index'
   get "passthrough/index"
@@ -10,7 +14,9 @@ Sparktivity::Application.routes.draw do
   resources :likes
   resources :projects
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
+  get 'tagged' => 'projects#tagged', :as => 'tagged'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

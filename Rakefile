@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sparktivity::Application.load_tasks
+Sparkwall::Application.load_tasks

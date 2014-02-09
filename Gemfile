@@ -31,6 +31,12 @@ gem 'jbuilder', '~> 1.2'
 # Add devise for login and authentication
 gem 'devise'
 
+# Add carrierwave to handle uploading files
+gem 'carrierwave'
+
+# Here's Acts as Taggable On to handle tagging features
+gem 'acts-as-taggable-on'
+
 # Visualizer! Railroady, https://github.com/preston/railroady
 group :development, :test do
     gem 'railroady'

@@ -17,12 +17,19 @@
 #  Country.create( :name => country[0], :population => country[1] )
 #end
 
-user_list = [
-	['username','name','email@email.com','location']
+"user_list = [
+	['username','name','email@email.com','location'],
+	['eomwave','Moe','eomwave@gmail.com','New York']
 ]
 
 User.delete_all
+Wishlist.delete_all
+Project.delete_all
+
+i=1
+
 user_list.each do |user|
+	Wishlist.create
 	User.create( 
 		username: user[0],
 	 	name: user[1],
@@ -30,6 +37,9 @@ user_list.each do |user|
 	 	location: user[3],
 	 	password: 'password',
 	 	password_confirmation: 'password',
-	 	wishlist_id: 1
+	 	wishlist_id: i
 	 )
-end
+	i++
+end"
+
+

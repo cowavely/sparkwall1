@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -61,6 +61,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present? 
+      @projects = Project.tagged_with(params[:tag])
+      @tags = params[:tag]
+    else 
+      @projects = Project.postall
+    end  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -69,6 +78,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:header, :description, :image_url, :user_id)
+      params.require(:project).permit(:header, :description, :image_url, :user_id, :tag_list)
     end
 end

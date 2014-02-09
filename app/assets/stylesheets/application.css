@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-a { 
+/*a { 
 	&:link {
         color:#fbffe9;
     }
@@ -25,4 +25,4 @@ a {
     &:active {
         color:#fbffe9;
     }
-}
+}*/
