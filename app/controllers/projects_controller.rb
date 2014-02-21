@@ -61,6 +61,24 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # def like
+  #   @project = Project.find(params[:id])
+  #   type = params[:type]  
+
+  #   if current_user.liked_project?(@project)
+  #     current_user.like!(@project)
+  #     redirect_to :back, notice: 'You favorited #{@project.name}'
+
+  #   elsif current_user.liked_project?(@project) == false
+  #     current_user.unlike!(@project)
+  #     redirect_to :back, notice: 'Unfavorited #{@project.name}'
+
+  #   else
+  #     redirect_to :back, notice: 'Nothing happened.'
+  #   end
+    
+  # end
+
   def tagged
     if params[:tag].present? 
       @projects = Project.tagged_with(params[:tag])

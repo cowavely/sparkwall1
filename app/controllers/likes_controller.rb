@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_filter :set_like, only: [:show, :edit, :update, :destroy]
 
   # GET /likes
   # GET /likes.json
@@ -24,17 +25,16 @@ class LikesController < ApplicationController
   # POST /likes
   # POST /likes.json
   def create
-    @like = Like.new(like_params)
+
+    @project = Project.find(params[:like][:project_id])
+    current_user.like!(@project)
 
     respond_to do |format|
-      if @like.save
-        format.html { redirect_to @like, notice: 'Like was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @like }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
-      end
+      format.js
+      format.html { redirect_to :back }
+      format.json { render action: 'show', status: :created, location: @like }
     end
+
   end
 
   # PATCH/PUT /likes/1
@@ -54,10 +54,13 @@ class LikesController < ApplicationController
   # DELETE /likes/1
   # DELETE /likes/1.json
   def destroy
-    @like.destroy
+    @project = Like.find(params[:id]).project
+    current_user.unlike!(@project)
+
     respond_to do |format|
-      format.html { redirect_to likes_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
+      format.js
     end
   end
 
