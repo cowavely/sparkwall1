@@ -1,0 +1,43 @@
+<article class="units-split">
+
+<!--% Project.all.sort_by{:created_at}.reverse.each do |project| %-->
+<% project_collection.each do |project| %>
+
+	    <div class="content unit-50">
+        <%= link_to project, class: "postLink" do %>
+        <!--a href="http://yahoo.co.jp/" class="postLink"-->
+            <div class="unit-80">
+                <header class="contentHash">
+                    <a href="#"><span class="hash">#fun</span></a>
+                    <a href="#"><span class="hash">#memorable</span></a>
+                    <a href="#"><span class="hash">#helpful</span></a>
+                </header>
+                <h1><%= project.header %></h1>
+                <p class="textRed">
+                
+                <% project.tags.any? %>
+                    <!--% project.tags.each do |tag| %-->
+                    <!--%= link_to tag.name, tagged_url(:tag => tag.name) %> -->
+                    <span><%= project.tags.map{|tag| link_to tag.name, tagged_url(:tag => tag.name)}.join(', ').html_safe %></span>
+                <!--% end %-->
+                </p>
+            </div>
+            <div class="unit-20">
+                <ul class="action">
+                    <li class="wlButton"><%= render '/shared/wishlist_form', :project => project %><br><span class="count"><%= project.wishlists.count %></span></li>
+                    <li class="likePost"><%= render '/shared/like_form', :project => project %><br><span class="count"><%= project.likes.count %></span></li>
+                </ul>
+                	<div class="contentImg"><%= image_tag project.image, size: '60' %></div>
+            </div>
+            <footer>
+                <p class="auther"><a href="#"><img src="/assets/icon_user@2x.png" height="11" width="11" alt=""><%= project.user.username %></a></p>
+                <time>
+                    <!--%= project.created_at.strftime("%I:%M%p %B #{project.created_at.day.ordinalize}, %Y") %-->
+                    <%= project.created_at.strftime("%b %d '%y at %H:%M") %>
+                </time>
+            </footer>
+         <% end %>
+        <!--/a-->
+    </div>	
+
+<% end %>

@@ -1,0 +1,9 @@
+ <% if user_signed_in? %>
+	<div id="wishlist_form_<%= project.id %>">
+	  <% if !!current_user.added_project_to_wishlist?(project) %>
+	    <%= render '/projects/remove_from_wishlist', project: project %>
+	  <% else %>
+	  	<%= render '/projects/add_to_wishlist', project: project %>
+	  <% end %>
+	</div>
+<% end %>

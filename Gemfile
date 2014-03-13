@@ -5,7 +5,6 @@ gem 'rails'
 gem 'railties'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -47,6 +46,7 @@ gem 'therubyracer'
 # Visualizer! Railroady, https://github.com/preston/railroady
 group :development, :test do
     gem 'railroady'
+    gem 'sqlite3'
 end
 
 # for heroku from rails tutorial
