@@ -34,12 +34,25 @@ gem 'devise'
 # Add carrierwave to handle uploading files
 gem 'carrierwave'
 
+# Add omniauth for facebook integration
+gem 'omniauth-facebook'
+
 # Here's Acts as Taggable On to handle tagging features
 gem 'acts-as-taggable-on'
+
+gem 'kube-rails'
+
+gem 'therubyracer'
 
 # Visualizer! Railroady, https://github.com/preston/railroady
 group :development, :test do
     gem 'railroady'
+end
+
+# for heroku from rails tutorial
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :doc do

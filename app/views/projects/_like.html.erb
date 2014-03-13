@@ -3,5 +3,5 @@
 		<%= f.hidden_field :project_id %>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 	</div>
-	<%= f.submit "Like" %>
+	<%= image_submit_tag("/assets/icon_like.png") %>
 <% end %>

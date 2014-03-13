@@ -1,8 +1,5 @@
 Sparkwall::Application.routes.draw do
 
-
-  resources :grade_levels
-
   root :to => 'passthrough#index'
   get "passthrough/index"
   get "main/index"
@@ -10,21 +7,42 @@ Sparkwall::Application.routes.draw do
 
   resources :comments
   resources :likes#, only: [:create, :destroy]
+  resources :grade_levels
 
-  resources :projects #do
+
+  resources :projects do
   #   put :like, on: :member
-  # end
+    collection do
+      get :search
+    end
+
+    member do
+      get :add_to_wishlist
+      get :remove_from_wishlist
+    end
+  end
 
   # resources :users do
-  #   resources :wishlists
   #   member do
   #     get :liked_projects
   #   end
   # end
 
   devise_for :users, :controllers => {:registrations => "users/registrations"} do
-      get :liked_projects, on: :member  
+    #   member do
+    #     get :liked_projects
+    #     get :show
+    #   end
+    get 'users/:id' => 'users#show'
   end
+
+  resources :users, :only => [:show, :wishlist, :likes] do
+    member do
+      get 'wishlist'
+      get 'likes'
+    end
+  end
+
 
   get 'tagged' => 'projects#tagged', :as => 'tagged'
 

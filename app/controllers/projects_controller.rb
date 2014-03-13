@@ -76,8 +76,28 @@ class ProjectsController < ApplicationController
   #   else
   #     redirect_to :back, notice: 'Nothing happened.'
   #   end
-    
+
   # end
+
+  def add_to_wishlist
+    @project = Project.find(params[:project_id])
+    current_user.add_to_wishlist(@project)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to :back }
+      #format.json { render action: 'show', status: :created, location: @like }
+    end
+  end
+
+  def remove_from_wishlist
+    @project = Project.find(params[:project_id])
+    current_user.remove_from_wishlist(@project)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to :back }
+      #format.json { render action: 'show', status: :created, location: @like }
+    end
+  end
 
   def tagged
     if params[:tag].present? 
@@ -88,6 +108,12 @@ class ProjectsController < ApplicationController
     end  
   end
 
+  def search
+      # @projects = Project.where(["title LIKE ? or description LIKE ?" , "%#{params[:project][:title]}%", "%#{params[:project][:title]}%"])
+      @projects = Project.where("header LIKE ?", params[:query])
+      render "index"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -96,6 +122,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:header, :description, :image_url, :user_id, :tag_list)
+      params.require(:project).permit(:header, :description, :image, :user_id, :tag_list)
     end
 end

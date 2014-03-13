@@ -15,8 +15,18 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    def added_project_to_wishlist?(project)
+    	!!wishlist.projects.include?(project)
+    end
+
 	def add_to_wishlist(project)
     	wishlist.projects << project
+    	wishlist.save
+ 	end
+
+ 	def remove_from_wishlist(project)
+ 		wishlist.projects.delete(project)
+ 		wishlist.save
  	end
 
  	def likes_project?(project)
@@ -27,7 +37,8 @@ class User < ActiveRecord::Base
     	likes.create!(project_id: project.id)
   	end
 
-  	 def unlike!(project)
+  	def unlike!(project)
     	likes.find_by(project_id: project.id).destroy
   	end
+
 end

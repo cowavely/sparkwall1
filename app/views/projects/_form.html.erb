@@ -1,4 +1,5 @@
-<%= form_for(@project) do |f| %>
+
+<% form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -20,13 +21,10 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.label :image %><br>
+    <%= image_tag(@project.image_url) if @project.image? %>
+    <%= f.file_field :image %>
   </div>
-  <!--div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div-->
   <div class="field">
     <%= f.label :tags %>
     <%= f.text_field :tag_list %>
@@ -35,3 +33,41 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= form_for(@project) do |f| %>
+    <h2>What’s your project?</h2>
+
+    <% if @project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <dl class="units-row units-split">
+        <dt class="unit-20">Header*</dt>
+        <dd class="unit-80"><%= f.text_field :header %></dd>
+        <dt class="unit-20">Picture</dt>
+        <dd class="unit-80">
+            <div class="file">
+              Choose file...
+              <%= f.file_field :image %>
+            </div>
+        </dd>
+        <dt class="unit-20">Description*</dt>
+        <dd class="unit-80"><%= f.text_area(:description, cols: 30, rows: 10) %></dd>
+        <dt class="unit-20">Tags*</dt>
+        <dd class="unit-80"><%= f.text_field :tag_list %></dd>
+        <dt class="unit-20">Reactions*</dt>
+        <dd class="unit-80"><input type="text"></dd>
+    </dl>
+
+    <div class="sent">
+        <%= f.submit %>
+    </div>
+  <% end %>

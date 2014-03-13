@@ -3,11 +3,11 @@
 one:
   header: MyString
   description: MyString
-  image_url: MyString
+  image: MyString
   user_id: 1
 
 two:
   header: MyString
   description: MyString
-  image_url: MyString
+  image: MyString
   user_id: 1

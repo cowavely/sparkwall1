@@ -17,6 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with self.resource
   end
 
+  # def show
+  #   @user = User.find(params[:id])
+  # end
+
   def create
     build_resource(sign_up_params)
     resource.build_wishlist

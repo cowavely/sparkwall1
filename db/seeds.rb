@@ -42,8 +42,8 @@
 # end
 
 project_list = [
-	['header','description','image_url','1'],
-	['Drop eggs from 20 stories high','description','image_url','1']
+	['header','description','image','1'],
+	['Drop eggs from 20 stories high','description','image','1']
 ]
 
 Project.delete_all
@@ -54,7 +54,7 @@ project_list.each do |project|
 	Project.create!( 
 		header: project[0],
 	 	description: project[1],
-	 	image_url: project[2],
+	 	image: project[2],
 	 	user_id: project[3]
 	 )
 	i++

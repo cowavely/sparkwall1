@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221062747) do
+ActiveRecord::Schema.define(version: 20140222191254) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -38,18 +38,18 @@ ActiveRecord::Schema.define(version: 20140221062747) do
   add_index "likes", ["user_id", "project_id"], name: "index_likes_on_user_id_and_project_id", unique: true
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
-  create_table "project_wishlists", force: true do |t|
-    t.integer  "project_id"
-    t.integer  "wishlist_id"
+  create_table "projects", force: true do |t|
+    t.string   "header"
+    t.text     "description", limit: 255
+    t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "projects", force: true do |t|
-    t.string   "header"
-    t.text     "description", limit: 255
-    t.string   "image_url"
-    t.integer  "user_id"
+  create_table "projects_wishlists", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "wishlist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

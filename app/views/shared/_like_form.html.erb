@@ -1,12 +1,9 @@
-<!-- http://ruby.railstutorial.org/chapters/following-users#code-follow_form_partial
- -->
-
-<% if signed_in? %>
-	<div id="like_form">
-	  <% if current_user.likes_project?(Project.first) %>
-	    <%= render 'unlike' %>
+ <% if user_signed_in? %>
+	<div id="like_form_<%= project.id %>">
+	  <% if current_user.likes_project?(project) %>
+	    <%= render '/projects/unlike', project: project %>
 	  <% else %>
-	    <%= render 'like' %>
+	    <%= render '/projects/like', project: project %>
 	  <% end %>
 	</div>
 <% end %>

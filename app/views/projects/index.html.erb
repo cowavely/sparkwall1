@@ -1,3 +1,11 @@
+<div class="unit-80 mainContent">
+
+<%= form_tag("/projects/search", method: "get") do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>Listing projects</h1>
 
 <table>
@@ -18,7 +26,7 @@
       <tr>
         <td><%= project.header %></td>
         <td><%= project.description %></td>
-        <td><%= project.image_url %></td>
+        <td><%= project.image %></td>
         <td><%= project.user_id %></td>
         <td>
           <% project.tags.any? %>
@@ -26,7 +34,13 @@
             <%= link_to tag.name, tagged_url(:tag => tag.name) %>
           <% end %>
         </td>
-        <td><%= render 'like_form', :project => project %></td>
+        <td>
+          <strong id="liked_by_<%= project.id %>">
+            <%= project.liked_by.count %>
+          </strong>
+        </td>
+        <td><%= render '/shared/like_form', :project => project %></td>
+        <td><%= render '/shared/wishlist_form', :project => project %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,3 +52,5 @@
 <br>
 
 <%= link_to 'New Project', new_project_path %>
+
+</div>
