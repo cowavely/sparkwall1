@@ -33,6 +33,7 @@ body {
 }
 body,h1,h2,h3,h4,h5,h6 {
 	font-family: 'Droid Sans', sans-serif;
+    font-family: 'Droid Sans', "游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
 }
 input:focus {
 	outline-style:none;
@@ -133,7 +134,7 @@ input:focus {
 	.content {
 		padding: 21px;
 		width: 356px;
-		height: 417px;
+		min-height: 286px;
 		border: 1px solid #DEDEDE;
 		background-color: #fefefe;
 		margin: 0 20px 20px 0 !important;
@@ -157,10 +158,12 @@ input:focus {
 		}
 		h1 {
 			padding: 20px 0;
-			margin: 0;
-			height: 280px;
+			min-height: 130px;
+			margin-bottom: 30px;
 			line-height: 40px;
 			overflow:hidden;
+			font-weight: normal;
+			font-size: 26px;
 		}
 		.textRed {
 			color: $redCr;

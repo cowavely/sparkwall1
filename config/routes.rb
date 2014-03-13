@@ -4,6 +4,7 @@ Sparkwall::Application.routes.draw do
   get "passthrough/index"
   get "main/index"
   get "main/welcome"
+  get "main/about"
 
   resources :comments
   resources :likes#, only: [:create, :destroy]
