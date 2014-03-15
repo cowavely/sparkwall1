@@ -261,6 +261,10 @@ a {
 					background: none;
 				}
 			}
+				.likePost > div,
+				.wlButton > div {
+					height: 32px
+				} 
 		}
 		&:nth-child(2n) {
 			margin: 0 0 20px 0 !important;

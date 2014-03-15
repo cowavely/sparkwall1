@@ -11,13 +11,21 @@
 <body>
  <div class="unit-80 mainContent">
   <header class="headerNav">
-   <form action="">
-    <%= link_to new_project_path do %> <button><i>+</i>Add new</button><% end %>
+
+    <h1 class="status"> Recent </h1>
+
+    <% if user_signed_in? %>
+      <%= link_to new_project_path do %><button><i>+</i>Add new</button><% end %>
+    <% end %>
+
     <div class="searchBox">
-     <i class="fa fa-search fa-lg"></i>
-     <input type="search" placeholder="Title,subject,project type">
+      <!--input type="search" placeholder="Title,subject,project type"-->
+      <%= form_tag("/projects/search", method: "get") do %>
+        <i class="fa fa-search fa-lg"></i>
+        <%= text_field_tag(:query, "", placeholder: "Title, subject, project type") %>
+      <% end %>
     </div>
-   </form>
+
   </header>
 
   <%= render '/shared/big_grid_view', :project_collection => Project.all.sort_by{:created_at}.reverse %>
