@@ -16,9 +16,10 @@
         <div class="unit-20 entSide">
             <div class="entAuthor">
                 <%= image_tag @project.user.avatar, size: "80" %>
-                <h3 class="entAuthorName"><%= @project.user.username %></h5>
+                <h3 class="entAuthorName"><%= @project.user.username %></h3>
                 <span class="entAuthorLocation">from <%= @project.user.location %></span>
             </div>
+
             <div class="engTags">
                 <h4>Tags</h4>
                 <ul>
@@ -27,14 +28,16 @@
                     <% end %>
                 </ul>
             </div>
-            <% if current_user.is_owner?(@project) %>
-            <div class="userControls">
-              <ul>
-                <li><%= link_to "Edit project", edit_project_path(@project) %></li>
-                <li><%= link_to "Delete project", project_path(@project), :method => :delete %></li>
 
-              </ul>
-            </div>
+            <% if user_signed_in? %>
+            <% if current_user.is_owner?(@project) %>
+              <div class="userControls">
+                <ul>
+                  <li><%= link_to "Edit project", edit_project_path(@project) %></li>
+                  <li><%= link_to "Delete project", project_path(@project), :method => :delete %></li>
+                </ul>
+              </div>
+            <% end %>
             <% end %>
         </div>
     </div>
