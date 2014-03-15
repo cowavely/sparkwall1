@@ -5,71 +5,90 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <div id="topBorder"></div>
 
     <div class="units-row">
         <div class="unit-20 side">
             <!-- sidebar -->
-             <!--logo-->
-                 <h1 id="logo"><%= link_to image_tag("logo.png"), root_path %></h1>
-             <!--logo--> 
-             <!--nav-->
-                <div class="sideNav">
-                <% if user_signed_in? %>    
-                     <h2><%= current_user.username %></h2>
-                     <nav>
-                        <ul>
-                            <li><%= link_to "My Profile", user_path(current_user) %></li>
-                            <li><%= link_to "Wishlist", wishlist_user_path(current_user) %></li>                             
-                            <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
-                        </ul>
-                <% else %>
-                    <h2><%= link_to "Sign Up", new_user_registration_path %></h2>
-                <% end %>
-                        <ul>
-                             <li><a href="#">About</a></li>
-                             <li><a href="#">Facebook</a></li>
-                             <li><a href="#">Twitter</a></li>
-                        </ul>
-                     </nav>
-                     <h2>Discover</h2>
-                     <nav>
-                         <ul>
-                             <li><a href="#">Everything</a></li>
-                             <li><a href="#">Popular</a></li>
-                             <li><a href="#">Random</a></li>
-                         </ul>
-                     </nav>
-                     <h2>Trending</h2>
-                     <nav>
-                         <ul>
-                             <li><a href="#">Lorern</a></li>
-                             <li><a href="#">Ipsum</a></li>
-                             <li><a href="#">Sit Amet</a></li>
-                         </ul>
-                     </nav>
-                </div>
-        </div>
-        <div class="unit-80 mainContent">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= yield %>
-        </div>
-    </div>
+            <!--logo-->
+            <h1 id="logo"><%= link_to image_tag("logo.png"), root_path %></h1>
+            <!--logo--> 
+            <!--nav-->
+            <div class="sideNav">
+                <% if user_signed_in? %>
+                <h2><%= current_user.username %></h2>
+                <nav>
+                    <ul>
+                        <li><%= link_to "My Profile", user_path(current_user) %></li>
+                        <li><%= link_to "Wishlist", wishlist_user_path(current_user) %></li>
+                        <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
+                    </ul>
+                    <% else %>
+                    <ul>
+                        <li><b><%= link_to "Sign Up", new_user_registration_path %></b></li>
+                        <li><%= link_to "Log in", new_user_session_path %></li>
+                    </ul>
+                    <% end %>
+                    <ul>
+                       <li><%= link_to "About", about_path %></li>
+                       <!--li><a href="#">Facebook</a></li-->
+                       <!--li><a href="#">Twitter</a></li-->
+                   </ul>
+               </nav>
+               <h2>Discover</h2>
+               <nav>
+                   <ul>
+                       <li><a href="#">Everything</a></li>
+                       <!--li><a href="#">Popular</a></li-->
+                       <!--li><a href="#">Random</a></li-->
+                   </ul>
+               </nav>
+               <h2>Trending</h2>
+               <nav>
+                   <ul>
+                       <li><a href="#">Lorern</a></li>
+                       <li><a href="#">Ipsum</a></li>
+                       <li><a href="#">Sit Amet</a></li>
+                   </ul>
+               </nav>
+           </div>
+       </div>
+       <div class="unit-80 mainContent">
 
-    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-    <script>
-    $(function(){
+       <%= yield %>
+   </div>
+   </div>
+
+   <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+   <script>
+       $(function(){
          $(".content").click(function(){
-             window.location=$(this).find("a.postLink").attr("href");
-             return false;
+            window.location=$(this).find("a.postLink").attr("href");
+            return false;
+          });
         });
-    });
-    </script>
-</body>
 
+        $(function(){
+            $(".content span").click(function(e){
+              e.stopPropagation();
+              //show tooltip
+            });
+        });
+
+        $(function(){
+            $(".action").click(function(e){
+              e.stopPropagation();
+              //show tooltip
+            });
+        });
+
+    </script
+</body>
 </html>
