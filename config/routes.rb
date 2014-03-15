@@ -1,15 +1,22 @@
 Sparkwall::Application.routes.draw do
 
-  root :to => 'passthrough#index'
-  get "passthrough/index"
+  #root :to => 'passthrough#index'
+  #get "passthrough/index"
+
+  root :to => 'main#index'
+
   get "main/index"
-  get "main/welcome"
-  get "main/about"
+  #get "main/welcome"
+  #get "main/about"
+  #get "main/popular"
+
+  get 'popular' => 'main#popular'
+  get 'about' => 'main#about'
+  get 'policy' => 'main#policy'
 
   resources :comments
   resources :likes#, only: [:create, :destroy]
   resources :grade_levels
-
 
   resources :projects do
   #   put :like, on: :member

@@ -7,5 +7,11 @@ class MainController < ApplicationController
 
   def about
   end
+
+  def popular
+  end
+
+  def policy
+  end
   
 end

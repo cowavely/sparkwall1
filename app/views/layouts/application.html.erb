@@ -18,7 +18,7 @@
         <div class="unit-20 side">
             <!-- sidebar -->
             <!--logo-->
-            <h1 id="logo"><%= link_to image_tag("logo.png"), main_index_path %></h1>
+            <h1 id="logo"><%= link_to image_tag("logo.png"), root_path %></h1>
             <!--logo--> 
             <!--nav-->
             <div class="sideNav">
@@ -37,7 +37,7 @@
                     </ul>
                     <% end %>
                     <ul>
-                       <li><a href="#">About</a></li>
+                       <li><%= link_to "About", about_path %></li>
                        <li><a href="#">Facebook</a></li>
                        <li><a href="#">Twitter</a></li>
                    </ul>

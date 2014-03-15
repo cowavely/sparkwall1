@@ -8,10 +8,10 @@ class PassthroughController < ApplicationController
  	def index
     	path = case user_signed_in?
       		when true
-        		main_index_path
+        		root_path
       		when false #when not signed in
        		 	#main_welcome_path
-            main_index_path
+            root_path
     	end
     	redirect_to path     
   	end
