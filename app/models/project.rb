@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-	validates_presence_of :header, :description, :image, :user_id, :reflection, :reaction_list, :tag_list
+	validates_presence_of :header, :description, :image, :user_id, :reaction_list, :tag_list
 
 	has_many :comments, :dependent => :destroy
 	
