@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+	validates_presence_of :header, :description, :image, :user_id, :reflection, :reaction_list, :tag_list
 
 	has_many :comments, :dependent => :destroy
 	
@@ -17,5 +18,9 @@ class Project < ActiveRecord::Base
 	
 	acts_as_taggable
 	acts_as_taggable_on :tags, :subjects, :reactions
+
+	def popular_count
+		self.liked_by.count + self.wishlists.count
+	end
 
 end

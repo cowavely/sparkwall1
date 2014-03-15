@@ -1,36 +1,3 @@
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Header:</strong>
-  <%= @project.header %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @project.image %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-	<% @project.tags.any? %>
-	<% @project.tags.each do |tag| %>
-		<%= link_to tag.name, tagged_url(:tag => tag.name) %>
-	<% end %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
- -->
 
 <div class="unit-80 mainContent entry">
     <!-- content -->
@@ -44,7 +11,8 @@
                 <%= image_tag @project.image %>
             </div>
             <div class="entryBody">
-                <%= @project.description %>
+                <p><%= @project.description %></p>
+                <p><%= @project.reflection %></p>
             </div>
         </div>
         <div class="unit-20 entSide">
@@ -61,6 +29,15 @@
                     <% end %>
                 </ul>
             </div>
+            <% if current_user.is_owner?(@project) %>
+            <div class="userControls">
+              <ul>
+                <li><%= link_to "Edit project", edit_project_path(@project) %></li>
+                <li><%= link_to "Delete project", project_path(@project), :method => :delete %></li>
+
+              </ul>
+            </div>
+            <% end %>
         </div>
     </div>
 </div>

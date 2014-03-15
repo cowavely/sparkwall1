@@ -53,6 +53,7 @@ Sparkwall::Application.routes.draw do
 
 
   get 'tagged' => 'projects#tagged', :as => 'tagged'
+  get 'reaction' => 'projects#reaction_tagged', :as => 'reaction_tagged'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

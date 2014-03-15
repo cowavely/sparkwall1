@@ -101,6 +101,10 @@ a {
 	position: relative;
 	left: 134px;
 	margin-left: 0 !important;
+	h1 {
+		font-size: 16px;
+		text-align: left;
+	}
 	.headerNav {
 		text-align: right;
 		button {
@@ -175,7 +179,7 @@ a {
 		h1 {
 			padding: 20px 0;
 			margin: 0;
-			min-height: 100px;
+			min-height: 105px;
 			line-height: 1.6;
 			overflow:hidden;
 			font-size: 20px;
@@ -261,10 +265,10 @@ a {
 					background: none;
 				}
 			}
-				.likePost > div,
-				.wlButton > div {
-					height: 32px
-				} 
+			.likePost > div,
+			.wlButton > div {
+				height: 32px
+			}
 		}
 		&:nth-child(2n) {
 			margin: 0 0 20px 0 !important;
@@ -412,7 +416,7 @@ a {
 			margin: 0;
 			font-size: $fsz-middle;
 		}
-		.engTags {
+		.engTags, .userControls {
 			margin: 20px 0;
 			ul,li {
 				@include ul-reset;
@@ -490,5 +494,25 @@ a {
 				background-color: lighten(#ff7053, $hoverLight-normal);
 			}
 		}
+	}
+}
+
+//Sign Up
+
+.signup {
+	dt, dd {
+		margin-bottom: 30px;
+	}
+	input {
+		min-width: 200px;
+	}
+	input[type="submit"] {
+		background-color: hsl(10, 100%, 66%);
+		width: 200px;
+		line-height: 40px;
+		cursor: pointer;
+		font-size: 23px;
+		color: hsl(0, 100%, 100%);
+		border: 0;
 	}
 }

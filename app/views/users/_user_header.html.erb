@@ -5,7 +5,8 @@
                 <ul>
                     <li class="mypageName"><%= @user.username %></li>
                     <li class="mypageLocation">from <%= @user.location %></li>
-                    <li class="mypageSchool"><img src="/assets/icon_school.png" height="16" width="16" alt="">American School in Japan</li>
+                    <% if @user.school != nil %>
+                        <li class="mypageSchool"><img src="/assets/icon_school.png" height="16" width="16" alt=""><%= @user.school %><%</li>
                 </ul>
             </div>
         </div>
@@ -28,8 +29,8 @@
                 	Liked <span class="num"><%= @user.liked_projects.count %></span>
                 <% end %> </li>
             </ul>
-            <form action="">
+            <!--form action="">
                      <i class="fa fa-search fa-lg"></i><input type="search" placeholder="Search from moewave">
-            </form>
+            </form-->
         </div>
 </header>

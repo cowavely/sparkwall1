@@ -109,6 +109,15 @@ class ProjectsController < ApplicationController
     end  
   end
 
+  def reaction_tagged
+    if params[:reaction].present? 
+      @projects = Project.tagged_with(params[:reaction], :on => :reactions)
+      @tags = params[:reaction]
+    else 
+      @projects = Project.postall
+    end 
+  end
+
   def search
       # @projects = Project.where(["title LIKE ? or description LIKE ?" , "%#{params[:project][:title]}%", "%#{params[:project][:title]}%"])
       @projects = Project.where("header LIKE ?", params[:query])
@@ -123,6 +132,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:header, :description, :image, :user_id, :tag_list)
+      params.require(:project).permit(:header, :description, :image, :user_id, :tag_list, :reaction_list, :reflection)
     end
 end

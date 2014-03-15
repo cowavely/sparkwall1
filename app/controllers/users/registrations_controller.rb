@@ -1,15 +1,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
 	def resource_params
-	  params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar)
+	  params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar, :school)
 	end
 
 	def sign_up_params
-		params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar)
+		params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar, :school)
 	end
 
 	def account_update_params
-		params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar, :current_password)
+		params.require(:user).permit(:username, :name, :email, :location, :password, :password_confirmation, :avatar, :current_password, :school)
 	end
 
   def new

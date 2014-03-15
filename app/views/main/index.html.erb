@@ -12,19 +12,23 @@
  <div class="unit-80 mainContent">
   <header class="headerNav">
 
-    <class="status"> Recent </h1>
+   <div class="unit-30">
+    <h1 class="status">Recent</h1>
+   </div>
 
+   <div class="unit-70">
     <% if user_signed_in? %>
-      <%= link_to new_project_path do %><button><i>+</i>Add new</button><% end %>
+    <%= link_to new_project_path do %><button><i>+</i>Add new</button><% end %>
     <% end %>
 
     <div class="searchBox">
-      <!--input type="search" placeholder="Title,subject,project type"-->
-      <%= form_tag("/projects/search", method: "get") do %>
-        <i class="fa fa-search fa-lg"></i>
-        <%= text_field_tag(:query, "", placeholder: "Title, subject, project type") %>
-      <% end %>
+     <!--input type="search" placeholder="Title,subject,project type"-->
+     <%= form_tag("/projects/search", method: "get") do %>
+     <i class="fa fa-search fa-lg"></i>
+     <%= text_field_tag(:query, "", placeholder: "Title, subject, project type") %>
+     <% end %>
     </div>
+   </div>
 
   </header>
 

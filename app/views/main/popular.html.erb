@@ -28,7 +28,7 @@
 
   </header>
 
-  <%= render '/shared/big_grid_view', :project_collection => Project.all.sort_by{:created_at}.reverse %>
+  <%= render '/shared/big_grid_view', :project_collection => Project.sort_by{&:popular_count}.map %>
 
  </div>
 </body>

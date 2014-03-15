@@ -8,10 +8,14 @@
         <div class="content-inner">
             <div class="unit-80">
                 <header class="contentHash">
-                    <a href="#"><span class="hash">#fun</span></a>
-                    <a href="#"><span class="hash">#memorable</span></a>
-                    <a href="#"><span class="hash">#helpful</span></a>
+
+                <% project.reactions.any? %>
+                <% project.reactions.each do |reaction| %>
+                <%= link_to reaction.name, reaction_tagged_url(:reaction => reaction.name), class: "hash" %>
+                <% end %>
+
                 </header>
+
                 <h1><span><%= project.header %></span></h1>
                 <p class="textRed">
 

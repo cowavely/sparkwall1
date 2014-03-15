@@ -41,4 +41,7 @@ class User < ActiveRecord::Base
     	likes.find_by(project_id: project.id).destroy
   	end
 
+    def is_owner?(project)
+      project.user.id == self.id
+    end
 end
