@@ -28,7 +28,7 @@
         </div>
         <footer>
             <div class="footer-inner">
-                <p class="auther"><a href="#"><img src="/assets/icon_user@2x.png" height="11" width="11" alt=""><%= project.user.username %></a></p>
+                <p class="auther"><a href="#"><%= image_tag project.user.avatar, size: '11' %><%= project.user.username %></a></p>
                 <time>
                     <%= project.created_at.strftime("%b %d '%y at %H:%M") %>
                 </time>
