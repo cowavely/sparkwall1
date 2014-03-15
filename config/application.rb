@@ -10,7 +10,7 @@ module Sparkwall
   class Application < Rails::Application
     
     config.i18n.enforce_available_locales = true
-    ActsAsTaggableOn.delimiter = ([',', '　', '、']):
+    ActsAsTaggableOn.delimiter = ([',', '　', '、'])
     # paths.app.views << "app/views/devise"
 
     # Settings in config/environments/* take precedence over those specified here.
