@@ -5,14 +5,14 @@
                 <ul>
                     <li class="mypageName"><%= @user.username %></li>
                     <li class="mypageLocation">from <%= @user.location %></li>
-                    <li class="mypageSchool"><img src="/assets/icon_school.png" height="16" width="16" alt="">American School in Japan</li>
+                    <li class="mypageSchool"><img src="icon_school.png" height="16" width="16" alt="">American School in Japan</li>
                 </ul>
             </div>
         </div>
         <div class="unit-20">
             <ul class="mypageSetting">
-                <li><%= link_to "#{image_tag"/assets/icon_setting.png", size: "28"}Settings".html_safe, edit_user_registration_path(@user) %></li>
-                <li><%= link_to "#{image_tag"/assets/icon_logout.png", size: "28"}Log Out".html_safe, destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to "#{image_tag"icon_setting.png", size: "28"}Settings".html_safe, edit_user_registration_path(@user) %></li>
+                <li><%= link_to "#{image_tag"icon_logout.png", size: "28"}Log Out".html_safe, destroy_user_session_path, :method => :delete %></li>
             </ul>
         </div>
         <div class="mypageNav">
@@ -29,7 +29,7 @@
                 <% end %> </li>
             </ul>
             <form action="">
-                <img src="/assets/icon_search.png" height="15" width="15" alt=""><input type="search" placeholder="Search from moewave">
+                <img src="icon_search.png" height="15" width="15" alt=""><input type="search" placeholder="Search from moewave">
             </form>
         </div>
 </header>

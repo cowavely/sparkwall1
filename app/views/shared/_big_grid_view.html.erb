@@ -30,7 +30,7 @@
                 	<div class="contentImg"><%= image_tag project.image, size: '60' %></div>
             </div>
             <footer>
-                <p class="auther"><a href="#"><img src="/assets/icon_user@2x.png" height="11" width="11" alt=""><%= project.user.username %></a></p>
+                <p class="auther"><a href="#"><img src="icon_user@2x.png" height="11" width="11" alt=""><%= project.user.username %></a></p>
                 <time>
                     <!--%= project.created_at.strftime("%I:%M%p %B #{project.created_at.day.ordinalize}, %Y") %-->
                     <%= project.created_at.strftime("%b %d '%y at %H:%M") %>
