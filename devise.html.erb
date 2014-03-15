@@ -9,7 +9,7 @@
 
 <body>
 
-    <div id="topBorder"></div>
+	<div id="topBorder"></div>
 
     <div class="units-row">
         <div class="unit-20 side">
@@ -57,19 +57,19 @@
         <div class="unit-80 mainContent">
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
-            <%= yield %>
+        	<%= yield %>
         </div>
     </div>
 
-    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-    <script>
-    $(function(){
-         $(".content").click(function(){
-             window.location=$(this).find("a.postLink").attr("href");
-             return false;
-        });
-    });
-    </script>
+	<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+	<script>
+	$(function(){
+	     $(".content").click(function(){
+	         window.location=$(this).find("a.postLink").attr("href");
+	         return false;
+	    });
+	});
+	</script>
 </body>
 
 </html>

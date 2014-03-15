@@ -1,32 +1,36 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<dl class="units-row units-split signup">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, :autofocus => true %></div>
+    <dt class="unit-20"><%= f.label :name %></dt>
+    <dd class="unit-80"><%= f.text_field :name %></dd>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+    <dt class="unit-20"><%= f.label :username %></dt>
+    <dd class="unit-80"><%= f.text_field :username %></dd>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <dt class="unit-20"><%= f.label :email %></dt>
+    <dd class="unit-80"><%= f.email_field :email %></dd>
 
-  <div><%= f.label :location %><br />
-  <%= f.text_field :location %></div>
+    <dt class="unit-20"><%= f.label :location %></dt>
+    <dd class="unit-80"><%= f.text_field :location %></dd>
+    
+    <dt class="unit-20"><%= f.label :password %></dt>
+    <dd class="unit-80"><%= f.password_field :password %></dd>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <dt class="unit-20"><%= f.label :password_confirmation %></dt>
+    <dd class="unit-80"><%= f.password_field :password_confirmation %></dd>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <dd class="unit-80">
+            <div class="file">
+              Avatar:
+              <%= f.file_field :image %>
+            </div>
+        </dd>
 
-  <div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div><%= f.submit "Sign up" %></div>
+  <% end %>
+</dl>
 
 <%= render "devise/shared/links" %>

@@ -10,6 +10,7 @@ $mainCr: #545454;
 $lightCr: #C0CDD4;
 $redCr: #F65F47;
 $grayCr: #030303;
+$yellow: #f7d636;
 $lightgrayCr: #939393;
 $hovergrayCr: #f7f6f4;
 $bluegrayCr: #c0cdd4;
@@ -24,7 +25,6 @@ $hoverLight-strong: 30%;
 	padding: 0;
 }
 
-
 //mainSetting
 body {
 	font-size: $fsz-normal;
@@ -32,12 +32,15 @@ body {
 	background-color: #f9f9f9;
 }
 body,h1,h2,h3,h4,h5,h6 {
-	font-family: 'Droid Sans', sans-serif;
-    font-family: 'Droid Sans', "游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+	font-family:'Droid Sans',"游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
 }
 input:focus {
 	outline-style:none;
 	box-shadow:none;
+}
+
+a {
+	transition: all .25s ease-out;
 }
 
 //common
@@ -93,7 +96,7 @@ input:focus {
 
 //toppage
 .mainContent {
-	width: 800px !important;
+	width: 884px !important;
 	padding: 34px;
 	position: relative;
 	left: 134px;
@@ -132,48 +135,68 @@ input:focus {
 		}
 	}
 	.content {
-		padding: 21px;
-		width: 356px;
-		min-height: 286px;
+		width: 398px;
 		border: 1px solid #DEDEDE;
 		background-color: #fefefe;
 		margin: 0 20px 20px 0 !important;
 		position: relative;
+		transition: all .25s ease-out;
+		.contentImg {
+			transition: all .25s ease-out;
+			height: 180px;
+			overflow: hidden;
+			&:hover {
+				opacity: .8;
+			}
+		}
+		.content-inner {
+			padding: 21px;
+		}
 		&:hover {
 			background-color: $hovergrayCr;
 			cursor: pointer;
+			border: 1px solid $yellow;
 		}
 		a {
 			text-decoration: none;
 		}
 		.hash {
-			background: $bluegrayCr;
+			// background: $bluegrayCr;
+			color: $bluegrayCr;
+			border: 1px solid $bluegrayCr;
 			padding: $padding-normal;
 			margin-right: $padding-normal;
-			color: #fff;
 			font-size: $fsz-normal;
 			&:hover {
 				background-color: lighten($bluegrayCr, $hoverLight-small);
+				color: #fff;
 			}
 		}
 		h1 {
 			padding: 20px 0;
-			min-height: 130px;
-			margin-bottom: 30px;
-			line-height: 40px;
+			margin: 0;
+			min-height: 100px;
+			line-height: 1.6;
 			overflow:hidden;
-			font-weight: normal;
-			font-size: 26px;
+			font-size: 20px;
+			color: #f7d636;
+			text-decoration: underline;
+			span {
+				color: #333;
+				&:hover {
+					color: #999;
+				}
+			}
 		}
 		.textRed {
-			color: $redCr;
 			font-weight: bold;
 			margin: 0;
 			padding: 0 0 20px 0;
 			a {
-				color: $redCr;
+				color: #666;
+				// color: $redCr;
 				&:hover {
-					color: lighten($redCr, $hoverLight-normal)
+					background: lighten($yellow, 20%);
 				}
 			}
 		}
@@ -183,6 +206,10 @@ input:focus {
 			color: $subCr;
 			border-top: 1px solid #e4e4e4;
 			padding-top: 10px;
+			.footer-inner {
+				padding: 5px 20px 15px;
+				overflow: hidden;
+			}
 			.auther {
 				img {
 					margin: -2px $padding-normal 0 0;
@@ -216,6 +243,10 @@ input:focus {
 					vertical-align: top;
 					padding-bottom: $padding-normal ;
 				}
+				#wishlist_form_1,
+				#like_form_1 {
+					height: 30px;
+				}
 				&.likePost {
 					img {
 						padding-bottom: 8px;
@@ -223,16 +254,21 @@ input:focus {
 					}
 				}
 				&:hover {
-					background-color: $bluegrayCr;
+					opacity: .8;
+				}
+				button {
+					border: none;
+					background: none;
 				}
 			}
 		}
-		.contentImg {
-			padding-top: 35px;
+		&:nth-child(2n) {
+			margin: 0 0 20px 0 !important;
 		}
-	&:nth-child(2n) {
-		margin: 0 0 20px 0 !important;
-	}
+		.count {
+			position: relative;
+			top: -20px;
+		}
 	}
 }
 //mypage
@@ -268,23 +304,23 @@ input:focus {
 		}
 	}
 	.mypageSetting {
-			@include ul-reset;
-			line-height: 28px;
-			margin: 10px 0 0;
-			li {
-				margin-bottom: 10px;
+		@include ul-reset;
+		line-height: 28px;
+		margin: 10px 0 0;
+		li {
+			margin-bottom: 10px;
+		}
+		a {
+			display: block;
+			color: $mainCr;
+			text-decoration: none;
+			&:hover {
+				color: lighten($mainCr, $hoverLight-normal);
 			}
-			a {
-				display: block;
-				color: $mainCr;
-				text-decoration: none;
-				&:hover {
-					color: lighten($mainCr, $hoverLight-normal);
-				}
-			}
-			img {
-				margin: 0 10px 0 0 ;
-			}
+		}
+		img {
+			margin: 0 10px 0 0 ;
+		}
 	}
 	.mypageNav {
 		clear: both;
@@ -401,39 +437,39 @@ input:focus {
 			float: right;
 			line-height: 50px
 		}
-			input[type="text"],textarea {
-				width: 100%;
-				border: 1px solid lighten($lightgrayCr, $hoverLight-normal);
-				line-height: 25px;
-			}
-			input[type="file"] {
-				-webkit-appearance: none;
-			}
-			textarea {
-				height: 100px;
-			}
-			input:hover,textarea:hover,.file:hover {
-				border: 1px solid lighten($lightgrayCr, $hoverLight-strong);
-			}
-			.file {
-				display: inline-block;
-				overflow: hidden;
-				position: relative;
-				border: 1px solid  lighten($lightgrayCr, $hoverLight-normal); 
-				border-radius: 3px;
-				line-height: 25px;
-				margin-top: 10px;
-				padding: 0 $padding-big;
-			}
+		input[type="text"],textarea {
+			width: 100%;
+			border: 1px solid lighten($lightgrayCr, $hoverLight-normal);
+			line-height: 25px;
+		}
+		input[type="file"] {
+			-webkit-appearance: none;
+		}
+		textarea {
+			height: 100px;
+		}
+		input:hover,textarea:hover,.file:hover {
+			border: 1px solid lighten($lightgrayCr, $hoverLight-strong);
+		}
+		.file {
+			display: inline-block;
+			overflow: hidden;
+			position: relative;
+			border: 1px solid  lighten($lightgrayCr, $hoverLight-normal);
+			border-radius: 3px;
+			line-height: 25px;
+			margin-top: 10px;
+			padding: 0 $padding-big;
+		}
 
-			.file input[type="file"] {
-				opacity: 0;
-				filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
-				position: absolute;
-				right: 0;
-				top: 0;
-				cursor: pointer;
-			}
+		.file input[type="file"] {
+			opacity: 0;
+			filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+			position: absolute;
+			right: 0;
+			top: 0;
+			cursor: pointer;
+		}
 	}
 	.sent {
 		text-align: right;

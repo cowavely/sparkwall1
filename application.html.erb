@@ -64,28 +64,5 @@
    </div>
 
    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-   <script>
-       $(function(){
-         $(".content").click(function(){
-            window.location=$(this).find("a.postLink").attr("href");
-            return false;
-          });
-        });
-
-        $(function(){
-            $(".content span").click(function(e){
-              e.stopPropagation();
-              //show tooltip
-            });
-        });
-
-        $(function(){
-            $(".action").click(function(e){
-              e.stopPropagation();
-              //show tooltip
-            });
-        });
-
-    </script
 </body>
 </html>
