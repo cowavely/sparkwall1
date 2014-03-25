@@ -1,2 +1,2 @@
 $("#like_form_<%= @project.id %>").html("<%= escape_javascript(render :partial => 'projects/like', :locals => {:project => @project}) %>")
-$(".liked_by_<%= @project.id %>").html('<%= @project.liked_by.count %>')
+$("#liked_by_<%= @project.id %>").html('<%= @project.liked_by.count %>')

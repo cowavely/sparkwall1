@@ -45,7 +45,7 @@
                <nav>
                    <ul>
                       <li><%= link_to "Browse", root_path %></li>
-                       <!--li><a href="#">Popular</a></li-->
+                      <li><%= link_to "Popular", popular_path %></li>
                        <!--li><a href="#">Random</a></li-->
                    </ul>
                </nav>
@@ -80,6 +80,13 @@
 
         $(function(){
             $(".action").click(function(e){
+              e.stopPropagation();
+              //show tooltip
+            });
+        });
+
+        $(function(){
+            $(".contentHash").click(function(e){
               e.stopPropagation();
               //show tooltip
             });

@@ -12,7 +12,9 @@
  <div class="unit-80 mainContent">
   <header class="headerNav">
 
-    <class="status"> Popular </h1>
+   <div class="unit-30">
+    <h1 class="status">Popular</h1>
+   </div>
 
     <% if user_signed_in? %>
       <%= link_to new_project_path do %><button><i>+</i>Add new</button><% end %>
@@ -28,8 +30,7 @@
 
   </header>
 
-  <%= render '/shared/big_grid_view', :project_collection => Project.sort_by{&:popular_count}.map %>
-
+  <%= render '/shared/big_grid_view', :project_collection => Project.all.sort_by(&:popular_count).reverse %>
  </div>
 </body>
 </html>

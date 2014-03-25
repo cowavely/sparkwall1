@@ -11,6 +11,8 @@ module Sparkwall
     
     config.i18n.enforce_available_locales = true
     ActsAsTaggableOn.delimiter = ([',', '　', '、'])
+    ActsAsTaggableOn.remove_unused_tags = true
+
     # paths.app.views << "app/views/devise"
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -10,13 +10,14 @@
                 <header class="contentHash">
 
                 <% project.reactions.any? %>
-                <% project.reactions.each do |reaction| %>
-                <%= link_to reaction.name, reaction_tagged_url(:reaction => reaction.name), class: "hash" %>
+                    <% project.reactions.each do |reaction| %>
+                    <%= link_to reaction.name, reaction_tagged_url(:reaction => reaction.name), class: "hash" %>
                 <% end %>
 
                 </header>
 
                 <h1><span><%= project.header %></span></h1>
+
                 <p class="textRed">
 
                     <% project.tags.any? %>
@@ -25,8 +26,11 @@
             </div>
             <div class="unit-20">
                 <ul class="action">
-                    <li class="wlButton"><%= render '/shared/wishlist_form', :project => project %><br><span class="count"><%= project.wishlists.count %></span></li>
-                    <li class="likePost"><%= render '/shared/like_form', :project => project %><br><span class="count"><%= project.likes.count %></span></li>
+                    <li class="wlButton"><%= render '/shared/wishlist_form', :project => project %><br>
+                        <div class="count"><span id="wishlisted_by_<%= project.id %>"><%= project.wishlists.count %></span></div></li>
+                    <li class="likePost"><%= render '/shared/like_form', :project => project %><br>
+                        <div class="count"><span id="liked_by_<%= project.id %>"><%= project.likes.count %></span></div>
+                    </li>
                 </ul>
             </div>
         </div>
